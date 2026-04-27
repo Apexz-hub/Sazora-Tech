@@ -54,11 +54,10 @@ const budgetOptions = [
 
 const orderSchema = z.object({
   nama: z.string().min(2, "Nama minimal 2 karakter").max(100, "Nama maksimal 100 karakter"),
- discordUser: z
+  discordUser: z
     .string()
     .min(2, "Username Discord wajib diisi")
-    .max(32, "Maksimal 32 karakter")
-    .regex(/^[a-zA-Z0-9_.]+$/, "Hanya huruf, angka, underscore, dan titik"),
+    .max(32, "Maksimal 32 karakter"),
   email: z.string().email("Email tidak valid"),
   whatsapp: z
     .string()
@@ -185,7 +184,6 @@ export default function OrderPage() {
               </h1>
               <p className="text-slate-400 text-sm">{service.title}</p>
             </div>
-          </div>
         </motion.div>
 
         {/* Status Alert */}
@@ -221,6 +219,7 @@ export default function OrderPage() {
           onSubmit={handleSubmit(onSubmit)}
           className="space-y-6"
         >
+          {/* Informasi Kontak */}
           <div className="rounded-2xl border border-white/10 bg-surface p-6 sm:p-8 space-y-6">
             <h2 className="text-lg font-semibold text-white font-['Orbitron'] flex items-center gap-2">
               <span className="w-1 h-6 bg-gradient-to-b from-neonBlue to-neonPurple rounded-full" />
@@ -291,9 +290,9 @@ export default function OrderPage() {
                   <p className="mt-1 text-xs text-red-400">{errors.whatsapp.message}</p>
                 )}
               </div>
-            </div>
           </div>
 
+          {/* Detail Project */}
           <div className="rounded-2xl border border-white/10 bg-surface p-6 sm:p-8 space-y-6">
             <h2 className="text-lg font-semibold text-white font-['Orbitron'] flex items-center gap-2">
               <span className="w-1 h-6 bg-gradient-to-b from-neonPurple to-neonPink rounded-full" />
@@ -343,7 +342,6 @@ export default function OrderPage() {
                         <div className="text-xs text-slate-500 leading-relaxed">
                           {pkg.description}
                         </div>
-                      </div>
                     </label>
                   ))}
                 </div>
@@ -471,7 +469,6 @@ export default function OrderPage() {
                   <p className="mt-1 text-xs text-red-400">{errors.catatan.message}</p>
                 )}
               </div>
-            </div>
           </div>
 
           {/* Submit Button */}
@@ -501,7 +498,5 @@ export default function OrderPage() {
           </p>
         </motion.form>
       </div>
-    </div>
   );
 }
-

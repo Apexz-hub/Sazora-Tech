@@ -39,13 +39,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Validasi discord format
-    const discordRegex = /^.+#\d{4}$/;
-    if (!discordRegex.test(body.discordUser)) {
-      return NextResponse.json(
-        { success: false, message: "Format Discord harus username#1234" },
-        { status: 400 }
-      );
-    }
+    if (!body.discordUser || body.discordUser.trim().length < 2) {
+  return NextResponse.json(
+    { success: false, message: "Username Discord minimal 2 karakter." },
+    { status: 400 }
+  );
+}
+
 
     // Validasi WhatsApp hanya angka
     const waRegex = /^[0-9]+$/;

@@ -1,14 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Github, Instagram, Mail } from "lucide-react";
+import { Zap, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer id="kontak" className="relative border-t border-white/10 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+      
+      {/* Container */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 md:py-16">
+        
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+          
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -25,6 +30,7 @@ export default function Footer() {
                 <span className="text-neonPink">A</span>
               </span>
             </Link>
+
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Platform jasa digital terpercaya untuk kebutuhan website, bot,
               dan server Discord Anda.
@@ -41,6 +47,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4 font-['Orbitron']">
               Link Cepat
             </h4>
+
             <ul className="space-y-2">
               {[
                 { label: "Beranda", href: "/#beranda" },
@@ -59,7 +66,7 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact */}
+          {/* Discord */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,47 +74,43 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h4 className="text-white font-semibold mb-4 font-['Orbitron']">
-              Hubungi Kami
+              Server Discord
             </h4>
-            <div className="space-y-3">
-              <a
-                href="mailto:hello@sazora.id"
-                className="flex items-center gap-3 text-slate-400 hover:text-neonBlue transition-colors text-sm"
-              >
-                <Mail className="w-4 h-4" />
-                <span>hello@sazora.id</span>
-              </a>
-              <div className="flex items-center gap-4 pt-2">
-                <a
-                  href="#"
-                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-neonBlue hover:border-neonBlue/30 transition-all"
-                  aria-label="Github"
-                >
-                  <Github className="w-4 h-4" />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-neonPink hover:border-neonPink/30 transition-all"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
+
+            <a
+              href="https://discord.gg/tsVzxbBvP8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 p-4 rounded-xl bg-[#5865F2]/10 border border-[#5865F2]/30 hover:bg-[#5865F2]/20 hover:border-[#5865F2]/50 transition-all duration-300"
+            >
+              <div className="p-2 rounded-lg bg-[#5865F2]">
+                <MessageSquare className="w-5 h-5 text-white" />
               </div>
-            </div>
+
+              <div>
+                <p className="text-white font-semibold text-sm group-hover:text-[#5865F2] transition-colors">
+                  Join Server Discord
+                </p>
+                <p className="text-slate-400 text-xs mt-0.5">
+                  discord.gg/tsVzxbBvP8
+                </p>
+              </div>
+            </a>
           </motion.div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-xs sm:text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} Sazora. All rights reserved.
+            &copy; {new Date().getFullYear()} Sazora. All rights reserved.
           </p>
+
           <p className="text-slate-600 text-xs">
-            Dibuat dengan ❤️ menggunakan Next.js & Tailwind CSS
+            Build by Sazora Tech
           </p>
         </div>
+
       </div>
     </footer>
   );
 }
-

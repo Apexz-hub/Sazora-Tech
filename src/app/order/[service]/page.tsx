@@ -54,10 +54,11 @@ const budgetOptions = [
 
 const orderSchema = z.object({
   nama: z.string().min(2, "Nama minimal 2 karakter").max(100, "Nama maksimal 100 karakter"),
-  discordUser: z
+ discordUser: z
     .string()
     .min(2, "Username Discord wajib diisi")
-    .regex(/^.+#\d{4}$/, "Format: username#1234"),
+    .max(32, "Maksimal 32 karakter")
+    .regex(/^[a-zA-Z0-9_.]+$/, "Hanya huruf, angka, underscore, dan titik"),
   email: z.string().email("Email tidak valid"),
   whatsapp: z
     .string()
@@ -251,7 +252,7 @@ export default function OrderPage() {
                 <input
                   type="text"
                   {...register("discordUser")}
-                  placeholder="username#1234"
+                  placeholder="username_anda"
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:border-neonBlue transition-all"
                 />
                 {errors.discordUser && (

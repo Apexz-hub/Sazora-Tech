@@ -113,9 +113,9 @@ Buka [http://localhost:3000](http://localhost:3000)
 
 ## 📞 Kontak
 
-- Email: hello@sazora.id
+- Email: -
 - Discord: Hubungi kami via order form 😄
 
 ---
 
-**Dibuat dengan ❤️ menggunakan Next.js & Tailwind CSS**
+**Development By Apexz**
